@@ -10,8 +10,10 @@ use PHPUnit\Framework\TestCase;
 class ByteInterpreterTest extends TestCase
 {
     #[Test]
+
     #[TestWith([[0x00, 0xFF], 255, Endianness::BIG])]
     #[TestWith([[0xFF, 0x00], 255, Endianness::LITTLE])]
+
     #[TestWith([[0x12, 0x34], 4660, Endianness::BIG])]
     #[TestWith([[0x34, 0x12], 4660, Endianness::LITTLE])]
     public function should_interpret_16_bit_unsigned_integers_correctly(
